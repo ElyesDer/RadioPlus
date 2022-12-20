@@ -10,13 +10,13 @@ import SwiftUI
 struct MiniatureCardView: View, RandomBackgroundProtocol {
     
     var viewMode: ViewMode
-    @Binding var content: String
+    @Binding var text: String
     
     var body: some View {
         ZStack {
             background
             
-            Text(content)
+            Text(text)
                 .foregroundColor(.white)
                 .font(.headline)
                 .padding()
@@ -28,6 +28,6 @@ struct MiniatureCardView: View, RandomBackgroundProtocol {
 
 struct MiniatureCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MiniatureCardView(viewMode: .color(.random()), content: .constant("Radio Name"))
+        MiniatureCardView(viewMode: .color(.random()), text: .constant("Radio Name"))
     }
 }

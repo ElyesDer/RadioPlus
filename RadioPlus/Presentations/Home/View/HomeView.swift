@@ -7,47 +7,6 @@
 
 import SwiftUI
 
-protocol HomeCategoryProtocol {
-    
-    associatedtype Content: View
-    var content: Content { get }
-    
-    func fetchDataOnAppear<T>() async throws -> T where T: Codable
-}
-
-//enum HomeCategoryView: HomeCategoryProtocol {
-//
-//    typealias Content = View
-//
-//    func fetchDataOnAppear<T>() async throws -> T where T : Decodable, T : Encodable {
-//
-//    }
-//
-//    case podcast
-//    case brands
-//    case alaffiche
-//    case youmaylike
-//    case latest
-//
-//    func getView() -> some View {
-//        Text("Bro")
-//    }
-//
-//}
-
-struct BrandsView: View {
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(alignment: .center) {
-                ForEach(1...100, id: \.self) {
-                    Text("Row \($0)")
-                }
-            }
-        }
-    }
-}
-
-
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
@@ -55,14 +14,27 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack {
-                BrandsView()
+                AnyView(render())
+            }
+            .onAppear {
+                viewModel.prepareHome()
             }
             .tabItem {
                 Label(title: {
-                    Text("Bro")
+                    Text("Home")
                 }, icon: {
                     Image(systemName: "pencil.circle.fill")
                 })
+            }
+        }
+    }
+}
+
+extension HomeView {
+    func render() -> any View {
+        Group {
+            ForEach(viewModel.content) { view in
+                view
             }
         }
     }

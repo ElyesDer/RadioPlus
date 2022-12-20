@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var factory: ViewModelFactory
     var body: some View {
         NavigationView {
             TabView {
-                Text("bro")
+                HomeView(viewModel: factory.buildHomeViewModel())
             }
         }
     }

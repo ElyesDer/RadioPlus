@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum HomeViewModelState {
     case loading
@@ -14,7 +15,6 @@ enum HomeViewModelState {
 }
 
 protocol HomeViewModelProtocol: HasShowRepositoryProtocol, HasGridRepositoryProtocol, HasLiveRepositoryProtocol, HasBrandRepositoryProtocol {
-    
     var viewState: HomeViewModelState { get }
 }
 
@@ -25,21 +25,25 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     var brandRepository: BrandRepositoryProtocol
     var showRepository: ShowRepositoryProtocol
     
+    @MainActor
     @Published
     var viewState: HomeViewModelState = .idle
     
-    @Published
-    var brands: Brands = []
+//    @Published
+//    var brands: Brands = []
+//
+//    @Published
+//    var shows: Shows = []
+//
+//    @Published
+//    var live: Live? = nil
+//
+//    @Published
+//    var grids: Grids = []
     
+    @MainActor
     @Published
-    var shows: Shows = []
-    
-    @Published
-    var live: Live? = nil
-    
-    @Published
-    var grids: Grids = []
-    
+    var content: [HomeCategoryView] = []
     
     typealias Dependencies = HasGridRepositoryProtocol & HasShowRepositoryProtocol & HasLiveRepositoryProtocol & HasBrandRepositoryProtocol
     
@@ -50,46 +54,56 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         self.liveRepository = dependencies.liveRepository
     }
     
+    func prepareHome() {
+        Task { @MainActor in
+            let shows = await fetchShows(for: .FRANCEBLEU, first: 10)
+            content.append(.shows(title: "All FRANCEBLEU shows", categoryMode: .fullwidthCard, shows: shows))
+        }
+    }
+    
     func fetchGrid(start: Date, end: Date, for station: Stations) async {
         do {
             let startDate = start.yesterdayDate()!.posixTime()
             let endDate = end.posixTime()
             let station: Stations = .FRANCEBLEU
-            grids = try await gridRepository.getGrid(start: startDate, end: endDate, station: station)
+            let grids = try await gridRepository.getGrid(start: startDate, end: endDate, station: station)
         } catch {
-            handleError(error: error)
+            await handleError(error: error)
         }
     }
     
     func fetchLive(for station: Stations) async {
         do {
-            live = try await liveRepository.getLive(for: station)
+            let live = try await liveRepository.getLive(for: station)
         } catch {
-            handleError(error: error)
+            await handleError(error: error)
         }
     }
     
-    func fetchShows(for station: Stations, first: Int) async {
+    func fetchShows(for station: Stations, first: Int) async -> Shows {
         do {
             let showsResponse = try await showRepository.getShows(for: station, first: first)
-            shows = showsResponse.shows.edges.flatMap {
+            return showsResponse.shows.edges.flatMap {
                 $0.compactMap {
                     $0.node
                 }
             } ?? []
         } catch {
-            handleError(error: error)
+            await handleError(error: error)
         }
+        
+        return []
     }
     
     func fetchBrands() async {
         do {
-            brands = try await brandRepository.getAllBrands()
+            let brands = try await brandRepository.getAllBrands()
         } catch {
-            handleError(error: error)
+            await handleError(error: error)
         }
     }
     
+    @MainActor
     private func handleError(error: Error) {
         if case .error(_) = viewState { return }
         

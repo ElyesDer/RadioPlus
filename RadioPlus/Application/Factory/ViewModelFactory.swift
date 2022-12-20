@@ -19,10 +19,6 @@ class ViewModelFactory: ObservableObject, ViewModelFactoryProtocol {
     var liveRepository: LiveRepositoryProtocol
     var brandRepository: BrandRepositoryProtocol
     
-//    typealias Dependencies = HasDataServiceProviderProtocol & HasShowRepositoryProtocol & HasGridRepositoryProtocol & HasLiveRepositoryProtocol & HasBrandRepositoryProtocol
-//    
-//    var dependencies: Dependencies
-    
     init() {
         self.dataServiceProvider = Requester()
         self.showRepository = ShowRepository(requester: self.dataServiceProvider)
