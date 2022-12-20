@@ -24,15 +24,3 @@ struct Grid: Codable {
     let title: String?
     let diffusion: Diffusion?
 }
-
-// MARK: - Diffusion
-struct Diffusion: Codable {
-    let id, title: String?
-    let standFirst, url: String?
-    let publishedDate: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id, title, standFirst, url
-        case publishedDate
-    }
-}

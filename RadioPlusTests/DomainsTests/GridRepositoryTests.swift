@@ -30,11 +30,13 @@ final class GridRepositoryTests: XCTestCase {
         zut = GridRepository(requester: requester, provider: provider)
         
         // with
-        let operation: GridRemoteOperations = .getGrid(with: Date().yesterdayDate()!, endDate: Date(), station: .FRANCEBLEU)
+        let startDate = Date().yesterdayDate()!.posixTime()
+        let endDate = Date().posixTime()
+        let station: Stations = .FRANCEBLEU
         
         // test
         do {
-            let query = try await zut.getGrid(grid: operation)
+            let query = try await zut.getGrid(start: startDate, end: endDate, station: station)
         } catch let error {
             XCTFail("Error thrown: \(error)")
         }

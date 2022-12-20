@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GridRepositoryProtocol {
-    func getGrid(grid: GridRemoteOperations) async throws -> GridResponse
+    func getGrid(start: Int32, end: Int32, station: Stations) async throws -> GridResponse
 }
 
 class GridRepository: GridRepositoryProtocol {
@@ -21,7 +21,8 @@ class GridRepository: GridRepositoryProtocol {
         self.provider = provider
     }
     
-    func getGrid(grid: GridRemoteOperations) async throws -> GridResponse {
-        try await requester.performOperation(grid)
+    func getGrid(start: Int32, end: Int32, station: Stations) async throws -> GridResponse {
+        let operation: GridRemoteOperations = .getGrid(query: .init(start: start, end: end, station: station))
+        return try await requester.performOperation(operation)
     }
 }
