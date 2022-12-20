@@ -14,6 +14,19 @@
 		E938CBB52950DD9800B40688 /* RadioPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBB42950DD9800B40688 /* RadioPlusTests.swift */; };
 		E938CBBF2950DD9800B40688 /* RadioPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBBE2950DD9800B40688 /* RadioPlusUITests.swift */; };
 		E938CBC12950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBC02950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift */; };
+		E9CFB2C42950EB170070B404 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = E9CFB2C32950EB170070B404 /* Inject */; };
+		E9CFB2CF295102E50070B404 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2CE295102E50070B404 /* Grid.swift */; };
+		E9CFB2D2295103E90070B404 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2D1295103E90070B404 /* Requester.swift */; };
+		E9CFB2D4295104230070B404 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2D3295104230070B404 /* APIProvider.swift */; };
+		E9CFB2D829510D720070B404 /* GridQuery.query in Resources */ = {isa = PBXBuildFile; fileRef = E9CFB2D729510D720070B404 /* GridQuery.query */; };
+		E9CFB2DA29510E4A0070B404 /* GridRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2D929510E4A0070B404 /* GridRepository.swift */; };
+		E9CFB2DC29510F030070B404 /* Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2DB29510F030070B404 /* Stations.swift */; };
+		E9CFB2E02951185F0070B404 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2DF2951185F0070B404 /* NetworkTests.swift */; };
+		E9CFB2E32951189D0070B404 /* GridRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2E22951189D0070B404 /* GridRepositoryTests.swift */; };
+		E9CFB2E5295122230070B404 /* GraphQLResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2E4295122220070B404 /* GraphQLResult.swift */; };
+		E9CFB2E7295122950070B404 /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2E6295122950070B404 /* GraphQLOperation.swift */; };
+		E9CFB2E9295124B80070B404 /* GridRemoteOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2E8295124B80070B404 /* GridRemoteOperations.swift */; };
+		E9CFB2EE29513ED90070B404 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2ED29513ED90070B404 /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +58,20 @@
 		E938CBBA2950DD9800B40688 /* RadioPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E938CBBE2950DD9800B40688 /* RadioPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlusUITests.swift; sourceTree = "<group>"; };
 		E938CBC02950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9CFB2CE295102E50070B404 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		E9CFB2D1295103E90070B404 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		E9CFB2D3295104230070B404 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		E9CFB2D52951076B0070B404 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E9CFB2D729510D720070B404 /* GridQuery.query */ = {isa = PBXFileReference; lastKnownFileType = text; path = GridQuery.query; sourceTree = "<group>"; };
+		E9CFB2D929510E4A0070B404 /* GridRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridRepository.swift; sourceTree = "<group>"; };
+		E9CFB2DB29510F030070B404 /* Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stations.swift; sourceTree = "<group>"; };
+		E9CFB2DF2951185F0070B404 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		E9CFB2E22951189D0070B404 /* GridRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridRepositoryTests.swift; sourceTree = "<group>"; };
+		E9CFB2E4295122220070B404 /* GraphQLResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResult.swift; sourceTree = "<group>"; };
+		E9CFB2E6295122950070B404 /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
+		E9CFB2E8295124B80070B404 /* GridRemoteOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridRemoteOperations.swift; sourceTree = "<group>"; };
+		E9CFB2EA295131280070B404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E9CFB2ED29513ED90070B404 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CFB2C42950EB170070B404 /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +123,11 @@
 		E938CBA12950DD9300B40688 /* RadioPlus */ = {
 			isa = PBXGroup;
 			children = (
+				E9CFB2EB29513EC70070B404 /* Shared */,
+				E9CFB2EA295131280070B404 /* Info.plist */,
+				E9CFB2CA2950F0010070B404 /* Data */,
+				E9CFB2C62950EE9D0070B404 /* Domain */,
+				E9CFB2C52950EB5E0070B404 /* Network */,
 				E938CBCF2950E3FF00B40688 /* Presentations */,
 				E938CBCE2950E3D900B40688 /* Ressources */,
 				E938CBCD2950E3CA00B40688 /* Application */,
@@ -115,6 +148,8 @@
 		E938CBB32950DD9800B40688 /* RadioPlusTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9CFB2E1295118870070B404 /* DomainsTests */,
+				E9CFB2DE295118440070B404 /* NetworkTests */,
 				E938CBB42950DD9800B40688 /* RadioPlusTests.swift */,
 			);
 			path = RadioPlusTests;
@@ -141,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E938CBA62950DD9700B40688 /* Assets.xcassets */,
+				E9CFB2D52951076B0070B404 /* Config.xcconfig */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -151,6 +187,108 @@
 				E938CBA42950DD9300B40688 /* ContentView.swift */,
 			);
 			path = Presentations;
+			sourceTree = "<group>";
+		};
+		E9CFB2C52950EB5E0070B404 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2D1295103E90070B404 /* Requester.swift */,
+				E9CFB2D3295104230070B404 /* APIProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E9CFB2C62950EE9D0070B404 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2D629510D590070B404 /* Queries */,
+				E9CFB2C92950EF7C0070B404 /* Entities */,
+				E9CFB2C82950EF770070B404 /* Repositories */,
+				E9CFB2C72950EF720070B404 /* Stores */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E9CFB2C72950EF720070B404 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		E9CFB2C82950EF770070B404 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2D929510E4A0070B404 /* GridRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E9CFB2C92950EF7C0070B404 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2E4295122220070B404 /* GraphQLResult.swift */,
+				E9CFB2E6295122950070B404 /* GraphQLOperation.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E9CFB2CA2950F0010070B404 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2CD295102AB0070B404 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E9CFB2CD295102AB0070B404 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2CE295102E50070B404 /* Grid.swift */,
+				E9CFB2DB29510F030070B404 /* Stations.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9CFB2D629510D590070B404 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2D729510D720070B404 /* GridQuery.query */,
+				E9CFB2E8295124B80070B404 /* GridRemoteOperations.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		E9CFB2DE295118440070B404 /* NetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2DF2951185F0070B404 /* NetworkTests.swift */,
+			);
+			path = NetworkTests;
+			sourceTree = "<group>";
+		};
+		E9CFB2E1295118870070B404 /* DomainsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2E22951189D0070B404 /* GridRepositoryTests.swift */,
+			);
+			path = DomainsTests;
+			sourceTree = "<group>";
+		};
+		E9CFB2EB29513EC70070B404 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2EC29513ECC0070B404 /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E9CFB2EC29513ECC0070B404 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB2ED29513ED90070B404 /* Date+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +308,9 @@
 			dependencies = (
 			);
 			name = RadioPlus;
+			packageProductDependencies = (
+				E9CFB2C32950EB170070B404 /* Inject */,
+			);
 			productName = RadioPlus;
 			productReference = E938CB9F2950DD9300B40688 /* RadioPlus.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +383,9 @@
 				Base,
 			);
 			mainGroup = E938CB962950DD9300B40688;
+			packageReferences = (
+				E9CFB2C22950EB170070B404 /* XCRemoteSwiftPackageReference "Inject" */,
+			);
 			productRefGroup = E938CBA02950DD9300B40688 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CFB2D829510D720070B404 /* GridQuery.query in Resources */,
 				E938CBAB2950DD9700B40688 /* Preview Assets.xcassets in Resources */,
 				E938CBA72950DD9700B40688 /* Assets.xcassets in Resources */,
 			);
@@ -305,7 +450,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E938CBA52950DD9300B40688 /* ContentView.swift in Sources */,
+				E9CFB2E9295124B80070B404 /* GridRemoteOperations.swift in Sources */,
+				E9CFB2EE29513ED90070B404 /* Date+.swift in Sources */,
 				E938CBA32950DD9300B40688 /* RadioPlusApp.swift in Sources */,
+				E9CFB2E7295122950070B404 /* GraphQLOperation.swift in Sources */,
+				E9CFB2D2295103E90070B404 /* Requester.swift in Sources */,
+				E9CFB2E5295122230070B404 /* GraphQLResult.swift in Sources */,
+				E9CFB2CF295102E50070B404 /* Grid.swift in Sources */,
+				E9CFB2D4295104230070B404 /* APIProvider.swift in Sources */,
+				E9CFB2DC29510F030070B404 /* Stations.swift in Sources */,
+				E9CFB2DA29510E4A0070B404 /* GridRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +467,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CFB2E02951185F0070B404 /* NetworkTests.swift in Sources */,
 				E938CBB52950DD9800B40688 /* RadioPlusTests.swift in Sources */,
+				E9CFB2E32951189D0070B404 /* GridRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +500,7 @@
 /* Begin XCBuildConfiguration section */
 		E938CBC22950DD9800B40688 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -402,6 +559,7 @@
 		};
 		E938CBC32950DD9800B40688 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -453,6 +611,7 @@
 		};
 		E938CBC52950DD9800B40688 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,6 +623,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RadioPlus/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -491,6 +651,7 @@
 		};
 		E938CBC62950DD9800B40688 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -502,6 +663,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RadioPlus/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -529,6 +691,7 @@
 		};
 		E938CBC82950DD9800B40688 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -552,6 +715,7 @@
 		};
 		E938CBC92950DD9800B40688 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -575,6 +739,7 @@
 		};
 		E938CBCB2950DD9800B40688 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -597,6 +762,7 @@
 		};
 		E938CBCC2950DD9800B40688 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CFB2D52951076B0070B404 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -657,6 +823,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9CFB2C22950EB170070B404 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9CFB2C32950EB170070B404 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9CFB2C22950EB170070B404 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E938CB972950DD9300B40688 /* Project object */;
 }

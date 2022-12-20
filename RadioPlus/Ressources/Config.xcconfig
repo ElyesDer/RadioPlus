@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  RadioPlus
+//
+//  Created by Derouiche Elyes on 19/12/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+API_KEY = 84c107b0-22f0-4958-883d-381edaa54174
