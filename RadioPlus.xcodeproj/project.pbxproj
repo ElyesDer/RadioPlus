@@ -38,6 +38,12 @@
 		E9CFB3032951CCFA0070B404 /* EdgeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3022951CCFA0070B404 /* EdgeWrapper.swift */; };
 		E9CFB3052951CE990070B404 /* ShowRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3042951CE990070B404 /* ShowRepository.swift */; };
 		E9CFB3082951CEEA0070B404 /* ShowRemoteOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3072951CEEA0070B404 /* ShowRemoteOperations.swift */; };
+		E9CFB30E2951D3A70070B404 /* MiniatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB30D2951D3A60070B404 /* MiniatureCardView.swift */; };
+		E9CFB3102951D4540070B404 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB30F2951D4530070B404 /* Color+.swift */; };
+		E9CFB3122951D63B0070B404 /* VerticalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3112951D63A0070B404 /* VerticalCardView.swift */; };
+		E9CFB3152951D8410070B404 /* RandomBackgroundProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3142951D8410070B404 /* RandomBackgroundProtocol.swift */; };
+		E9CFB3172951D97D0070B404 /* FullWidthCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3162951D97D0070B404 /* FullWidthCard.swift */; };
+		E9CFB3192951DD020070B404 /* StickyHeaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3182951DD020070B404 /* StickyHeaderContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,12 @@
 		E9CFB3022951CCFA0070B404 /* EdgeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeWrapper.swift; sourceTree = "<group>"; };
 		E9CFB3042951CE990070B404 /* ShowRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepository.swift; sourceTree = "<group>"; };
 		E9CFB3072951CEEA0070B404 /* ShowRemoteOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRemoteOperations.swift; sourceTree = "<group>"; };
+		E9CFB30D2951D3A60070B404 /* MiniatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniatureCardView.swift; sourceTree = "<group>"; };
+		E9CFB30F2951D4530070B404 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		E9CFB3112951D63A0070B404 /* VerticalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCardView.swift; sourceTree = "<group>"; };
+		E9CFB3142951D8410070B404 /* RandomBackgroundProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBackgroundProtocol.swift; sourceTree = "<group>"; };
+		E9CFB3162951D97D0070B404 /* FullWidthCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthCard.swift; sourceTree = "<group>"; };
+		E9CFB3182951DD020070B404 /* StickyHeaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +218,8 @@
 		E938CBCF2950E3FF00B40688 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				E9CFB3132951D82D0070B404 /* Shared */,
+				E9CFB3092951D2AD0070B404 /* Components */,
 				E938CBA42950DD9300B40688 /* ContentView.swift */,
 			);
 			path = Presentations;
@@ -319,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CFB2ED29513ED90070B404 /* Date+.swift */,
+				E9CFB30F2951D4530070B404 /* Color+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +369,33 @@
 				E9CFB3072951CEEA0070B404 /* ShowRemoteOperations.swift */,
 			);
 			path = Shows;
+			sourceTree = "<group>";
+		};
+		E9CFB3092951D2AD0070B404 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB30A2951D2B90070B404 /* Cards */,
+				E9CFB3182951DD020070B404 /* StickyHeaderContainer.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E9CFB30A2951D2B90070B404 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB30D2951D3A60070B404 /* MiniatureCardView.swift */,
+				E9CFB3112951D63A0070B404 /* VerticalCardView.swift */,
+				E9CFB3162951D97D0070B404 /* FullWidthCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		E9CFB3132951D82D0070B404 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB3142951D8410070B404 /* RandomBackgroundProtocol.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E938CBA52950DD9300B40688 /* ContentView.swift in Sources */,
+				E9CFB3102951D4540070B404 /* Color+.swift in Sources */,
 				E9CFB2FE2951C2C20070B404 /* Brand.swift in Sources */,
 				E9CFB3032951CCFA0070B404 /* EdgeWrapper.swift in Sources */,
 				E9CFB2F22951BC0C0070B404 /* LiveRemoteOperations.swift in Sources */,
@@ -524,17 +567,22 @@
 				E9CFB2EE29513ED90070B404 /* Date+.swift in Sources */,
 				E938CBA32950DD9300B40688 /* RadioPlusApp.swift in Sources */,
 				E9CFB3012951C3080070B404 /* BrandRemoteOperations.swift in Sources */,
+				E9CFB3122951D63B0070B404 /* VerticalCardView.swift in Sources */,
 				E9CFB2E7295122950070B404 /* GraphQLOperation.swift in Sources */,
 				E9CFB2D2295103E90070B404 /* Requester.swift in Sources */,
 				E9CFB2E5295122230070B404 /* GraphQLResult.swift in Sources */,
 				E9CFB2CF295102E50070B404 /* Grid.swift in Sources */,
 				E9CFB3052951CE990070B404 /* ShowRepository.swift in Sources */,
+				E9CFB3192951DD020070B404 /* StickyHeaderContainer.swift in Sources */,
+				E9CFB3172951D97D0070B404 /* FullWidthCard.swift in Sources */,
 				E9CFB2F62951BCAC0070B404 /* Diffusion.swift in Sources */,
 				E9CFB2D4295104230070B404 /* APIProvider.swift in Sources */,
 				E9CFB2DC29510F030070B404 /* Stations.swift in Sources */,
+				E9CFB30E2951D3A70070B404 /* MiniatureCardView.swift in Sources */,
 				E9CFB2DA29510E4A0070B404 /* GridRepository.swift in Sources */,
 				E9CFB2FC2951C2BC0070B404 /* BrandRepository.swift in Sources */,
 				E9CFB2F42951BC2B0070B404 /* Live.swift in Sources */,
+				E9CFB3152951D8410070B404 /* RandomBackgroundProtocol.swift in Sources */,
 				E9CFB2FA2951BED40070B404 /* LiveRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
