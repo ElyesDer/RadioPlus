@@ -13,7 +13,7 @@ struct StickyHeaderContainer<Content: View>: View, RandomBackgroundProtocol {
     var minHeight: CGFloat
     var content: Content
     
-    init(viewMode: ViewMode = .randomColor, minHeight: CGFloat = 200, @ViewBuilder content: () -> Content) {
+    init(viewMode: ViewMode = .color(.random()), minHeight: CGFloat = 200, @ViewBuilder content: () -> Content) {
         self.viewMode = viewMode
         self.minHeight = minHeight
         self.content = content()
@@ -39,7 +39,7 @@ struct StickyHeaderContainer<Content: View>: View, RandomBackgroundProtocol {
 
 struct StickyHeaderContainer_Previews: PreviewProvider {
     static var previews: some View {
-        StickyHeaderContainer(viewMode: .randomColor) {
+        StickyHeaderContainer(viewMode: .color(.random())) {
             VStack {
                 Text("bro")
             }

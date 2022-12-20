@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 enum ViewMode {
-    case randomImage
-    case randomColor
+    case image(String)
+    case color(Color)
 }
 
 protocol RandomBackgroundProtocol {
@@ -27,12 +27,12 @@ extension RandomBackgroundProtocol {
     @ViewBuilder
     var background: some View {
         switch viewMode {
-            case .randomImage:
+            case .image(let imageName):
                 Rectangle()
                     .fill(Color.random())
-            case .randomColor:
+            case .color(let color):
                 Rectangle()
-                    .fill(Color.random())
+                    .fill(color)
         }
     }
 }

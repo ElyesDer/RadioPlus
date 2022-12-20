@@ -28,6 +28,6 @@ struct MiniatureCardView: View, RandomBackgroundProtocol {
 
 struct MiniatureCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MiniatureCardView(viewMode: .randomColor, content: .constant("Radio Name"))
+        MiniatureCardView(viewMode: .color(.random()), content: .constant("Radio Name"))
     }
 }

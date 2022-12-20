@@ -38,6 +38,6 @@ struct FullWidthCard: View, RandomBackgroundProtocol {
 
 struct FullWidthCard_Previews: PreviewProvider {
     static var previews: some View {
-        FullWidthCard(viewMode: .randomImage, title: .constant("Sub head line Sub head line"), subtitle: .constant("Sub head line Sub head line"))
+        FullWidthCard(viewMode: .color(.random()), title: .constant("Sub head line Sub head line"), subtitle: .constant("Sub head line Sub head line"))
     }
 }
