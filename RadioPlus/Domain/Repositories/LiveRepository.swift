@@ -7,22 +7,24 @@
 
 import Foundation
 
+protocol HasLiveRepositoryProtocol {
+    var liveRepository: LiveRepositoryProtocol { get }
+}
+
 protocol LiveRepositoryProtocol {
-    func getLive(for station: Stations) async throws -> LiveResponse
+    func getLive(for station: Stations) async throws -> Live?
 }
 
 class LiveRepository: LiveRepositoryProtocol {
     
     private let requester: DataServiceProviderProtocol
-    private let provider: NetworkProvider
     
-    internal init(requester: DataServiceProviderProtocol, provider: NetworkProvider) {
+    internal init(requester: DataServiceProviderProtocol) {
         self.requester = requester
-        self.provider = provider
     }
     
-    func getLive(for station: Stations) async throws -> LiveResponse {
+    func getLive(for station: Stations) async throws -> Live? {
         let operation: LiveRemoteOperation = .getLive(with: .init(station: station))
-        return try await requester.performOperation(operation)
+        return try await requester.performOperation(operation).live
     }
 }

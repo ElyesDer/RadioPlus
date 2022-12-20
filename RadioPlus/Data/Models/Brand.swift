@@ -13,9 +13,10 @@ struct BrandQuery: Codable {
 
 // MARK: - BrandResponse
 struct BrandResponse: Codable {
-    let brands: [Brand]?
+    let brands: [Brand]
 }
 
+typealias Brands = [Brand]
 // MARK: - Brand
 struct Brand: Codable {
     let id, title: String?

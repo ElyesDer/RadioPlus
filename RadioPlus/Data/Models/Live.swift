@@ -11,7 +11,9 @@ struct LiveQuery: Codable {
     let station: Stations
 }
 
-// MARK: - DataClass
+typealias Lives = [Live]
+
+// MARK: - LiveResponse
 struct LiveResponse: Codable {
     let live: Live?
 }

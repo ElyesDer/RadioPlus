@@ -7,22 +7,24 @@
 
 import Foundation
 
+protocol HasBrandRepositoryProtocol {
+    var brandRepository: BrandRepositoryProtocol { get }
+}
+
 protocol BrandRepositoryProtocol {
-    func getAllBrands() async throws -> BrandResponse
+    func getAllBrands() async throws -> Brands
 }
 
 class BrandRepository: BrandRepositoryProtocol {
     
     private let requester: DataServiceProviderProtocol
-    private let provider: NetworkProvider
     
-    internal init(requester: DataServiceProviderProtocol, provider: NetworkProvider) {
+    internal init(requester: DataServiceProviderProtocol) {
         self.requester = requester
-        self.provider = provider
     }
     
-    func getAllBrands() async throws -> BrandResponse {
+    func getAllBrands() async throws -> Brands {
         let operation: BrandRemoteOperation = .getAllBrands()
-        return try await requester.performOperation(operation)
+        return try await requester.performOperation(operation).brands
     }
 }

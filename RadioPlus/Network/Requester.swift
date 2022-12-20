@@ -10,6 +10,9 @@ import Combine
 
 protocol ResponseWrapper: Decodable { }
 
+protocol HasDataServiceProviderProtocol {
+    var dataServiceProvider: DataServiceProviderProtocol { get }
+}
 protocol DataServiceProviderProtocol {
     func performOperation<Input, Output>(_ operation: any GraphQLOperationProtocol<Input, Output>) async throws -> Output where Input: Decodable, Output: Decodable
 }

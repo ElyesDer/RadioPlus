@@ -13,7 +13,9 @@ struct GridQuery: Codable {
     let station: Stations
 }
 
-// MARK: - DataClass
+typealias Grids = [Grid]
+
+// MARK: - GridResponse
 struct GridResponse: Codable {
     let grid: [Grid]
 }

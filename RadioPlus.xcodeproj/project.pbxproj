@@ -44,6 +44,9 @@
 		E9CFB3152951D8410070B404 /* RandomBackgroundProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3142951D8410070B404 /* RandomBackgroundProtocol.swift */; };
 		E9CFB3172951D97D0070B404 /* FullWidthCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3162951D97D0070B404 /* FullWidthCard.swift */; };
 		E9CFB3192951DD020070B404 /* StickyHeaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB3182951DD020070B404 /* StickyHeaderContainer.swift */; };
+		E9CFB31E2952096A0070B404 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB31D295209690070B404 /* HomeView.swift */; };
+		E9CFB321295209810070B404 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB320295209810070B404 /* HomeViewModel.swift */; };
+		E9CFB324295228FE0070B404 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB323295228FE0070B404 /* ViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		E9CFB3142951D8410070B404 /* RandomBackgroundProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBackgroundProtocol.swift; sourceTree = "<group>"; };
 		E9CFB3162951D97D0070B404 /* FullWidthCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthCard.swift; sourceTree = "<group>"; };
 		E9CFB3182951DD020070B404 /* StickyHeaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderContainer.swift; sourceTree = "<group>"; };
+		E9CFB31D295209690070B404 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E9CFB320295209810070B404 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E9CFB323295228FE0070B404 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +207,7 @@
 		E938CBCD2950E3CA00B40688 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E9CFB322295228F10070B404 /* Factory */,
 				E938CBA22950DD9300B40688 /* RadioPlusApp.swift */,
 			);
 			path = Application;
@@ -219,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CFB3132951D82D0070B404 /* Shared */,
+				E9CFB31A295209390070B404 /* Home */,
 				E9CFB3092951D2AD0070B404 /* Components */,
 				E938CBA42950DD9300B40688 /* ContentView.swift */,
 			);
@@ -398,6 +406,39 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		E9CFB31A295209390070B404 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB31C295209530070B404 /* View */,
+				E9CFB31B2952094C0070B404 /* HomeViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E9CFB31B2952094C0070B404 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB320295209810070B404 /* HomeViewModel.swift */,
+			);
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		E9CFB31C295209530070B404 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB31D295209690070B404 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9CFB322295228F10070B404 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFB323295228FE0070B404 /* ViewModelFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -568,11 +609,14 @@
 				E938CBA32950DD9300B40688 /* RadioPlusApp.swift in Sources */,
 				E9CFB3012951C3080070B404 /* BrandRemoteOperations.swift in Sources */,
 				E9CFB3122951D63B0070B404 /* VerticalCardView.swift in Sources */,
+				E9CFB31E2952096A0070B404 /* HomeView.swift in Sources */,
+				E9CFB321295209810070B404 /* HomeViewModel.swift in Sources */,
 				E9CFB2E7295122950070B404 /* GraphQLOperation.swift in Sources */,
 				E9CFB2D2295103E90070B404 /* Requester.swift in Sources */,
 				E9CFB2E5295122230070B404 /* GraphQLResult.swift in Sources */,
 				E9CFB2CF295102E50070B404 /* Grid.swift in Sources */,
 				E9CFB3052951CE990070B404 /* ShowRepository.swift in Sources */,
+				E9CFB324295228FE0070B404 /* ViewModelFactory.swift in Sources */,
 				E9CFB3192951DD020070B404 /* StickyHeaderContainer.swift in Sources */,
 				E9CFB3172951D97D0070B404 /* FullWidthCard.swift in Sources */,
 				E9CFB2F62951BCAC0070B404 /* Diffusion.swift in Sources */,

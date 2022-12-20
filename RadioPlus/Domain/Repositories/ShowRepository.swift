@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol HasShowRepositoryProtocol {
+    var showRepository: ShowRepositoryProtocol { get }
+}
+
 protocol ShowRepositoryProtocol {
     func getShows(for station: Stations, first: Int) async throws -> ShowsResponse
 }
@@ -14,11 +18,9 @@ protocol ShowRepositoryProtocol {
 class ShowRepository: ShowRepositoryProtocol {
     
     private let requester: DataServiceProviderProtocol
-    private let provider: NetworkProvider
     
-    internal init(requester: DataServiceProviderProtocol, provider: NetworkProvider) {
+    internal init(requester: DataServiceProviderProtocol) {
         self.requester = requester
-        self.provider = provider
     }
     
     func getShows(for station: Stations, first: Int) async throws -> ShowsResponse {

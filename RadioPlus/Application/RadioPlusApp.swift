@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct RadioPlusApp: App {
+    
+    var viewModelFactory: ViewModelFactory = .init()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModelFactory)
         }
     }
 }

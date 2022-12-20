@@ -12,6 +12,8 @@ struct ShowQuery: Codable {
     let first: Int
 }
 
+typealias Shows = [Show]
+
 // MARK: - Show
 struct Show: Codable {
     let id, title: String?
