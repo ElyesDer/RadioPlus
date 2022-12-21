@@ -22,6 +22,7 @@
 		E96238ED295314F200175837 /* DetailsShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238EC295314F200175837 /* DetailsShowView.swift */; };
 		E96238EF2953154200175837 /* DetailsShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238EE2953154200175837 /* DetailsShowViewModel.swift */; };
 		E96238F12953162E00175837 /* DetailsShowCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238F02953162E00175837 /* DetailsShowCategoryView.swift */; };
+		E96238F329532DAD00175837 /* HyCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238F229532DAD00175837 /* HyCarousel.swift */; };
 		E9CFB2C42950EB170070B404 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = E9CFB2C32950EB170070B404 /* Inject */; };
 		E9CFB2CF295102E50070B404 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2CE295102E50070B404 /* Grid.swift */; };
 		E9CFB2D2295103E90070B404 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFB2D1295103E90070B404 /* Requester.swift */; };
@@ -99,6 +100,7 @@
 		E96238EC295314F200175837 /* DetailsShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShowView.swift; sourceTree = "<group>"; };
 		E96238EE2953154200175837 /* DetailsShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShowViewModel.swift; sourceTree = "<group>"; };
 		E96238F02953162E00175837 /* DetailsShowCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShowCategoryView.swift; sourceTree = "<group>"; };
+		E96238F229532DAD00175837 /* HyCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyCarousel.swift; sourceTree = "<group>"; };
 		E9CFB2CE295102E50070B404 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		E9CFB2D1295103E90070B404 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		E9CFB2D3295104230070B404 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				E9CFB32529524AA90070B404 /* HomeCategoryView.swift */,
 				E96238EA29530C4C00175837 /* DetailsBrandCategoryView.swift */,
 				E96238F02953162E00175837 /* DetailsShowCategoryView.swift */,
+				E96238F229532DAD00175837 /* HyCarousel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				E938CBA32950DD9300B40688 /* RadioPlusApp.swift in Sources */,
 				E9CFB3012951C3080070B404 /* BrandRemoteOperations.swift in Sources */,
 				E9CFB3122951D63B0070B404 /* VerticalCardView.swift in Sources */,
+				E96238F329532DAD00175837 /* HyCarousel.swift in Sources */,
 				E9CFB31E2952096A0070B404 /* HomeView.swift in Sources */,
 				E9CFB321295209810070B404 /* HomeViewModel.swift in Sources */,
 				E9CFB2E7295122950070B404 /* GraphQLOperation.swift in Sources */,

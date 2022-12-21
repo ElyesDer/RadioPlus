@@ -80,6 +80,15 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     }
     
     func prepareHome() {
+        
+        Task { @MainActor in
+            let randomShowStation = [Stations.FIP, .FRANCECULTURE, .FRANCEINTER, .FRANCEMUSIQUE, .FRANCECULTURE].randomElement()!
+            let shows = await fetchShows(for: randomShowStation, first: 10)
+            if !shows.isEmpty {
+                content.insert(.init(type: .carousel(shows: shows)), at: 0)
+            }
+        }
+        
         Task { @MainActor in
             await [Stations.FIP, .FRANCECULTURE, .FRANCEINTER, .FRANCEMUSIQUE, .FRANCECULTURE].asyncForEach { station in
                 let shows = await fetchShows(for: station, first: 10)

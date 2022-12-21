@@ -14,7 +14,7 @@ struct DetailsLiveView: View {
     var body: some View {
         StickyHeaderContainer {
             VStack {
-                VerticalCardView(viewMode: .color(.random()), title: .constant(viewModel.liveShow.show?.title ?? ""), subtitle: .constant(""))
+                VerticalCardView(viewMode: .color(.random()), title: .constant(viewModel.title ?? ""), subtitle: .constant(""))
                 
                 Spacer()
                 

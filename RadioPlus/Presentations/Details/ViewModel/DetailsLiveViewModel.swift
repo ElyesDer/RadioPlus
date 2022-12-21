@@ -32,9 +32,9 @@ class DetailsLiveViewModel: ObservableObject, DetailsLiveViewModelProtocol {
         self.liveRepository = dependencies.liveRepository
         
         self.liveShow = live
-        self.title = live.show?.title ?? ""
-        self.standFirst = live.program?.diffusion?.standFirst ?? ""
-        self.moreInfoUrl = live.program?.diffusion?.url ?? ""
+        self.title = live.show?.diffusion?.title ?? ""
+        self.standFirst = live.show?.diffusion?.standFirst ?? ""
+        self.moreInfoUrl = live.show?.diffusion?.url ?? ""
         self.currentlyPlaying = live.song ?? ""
     }
 }

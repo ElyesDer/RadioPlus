@@ -18,6 +18,7 @@ enum HomeCategoryTypeView {
     case brand(title: String, brands: Brands)
     case live(title: String, live: Live)
     case shows(title: String, categoryMode: CategoryViewType, shows: Shows)
+    case carousel(shows: Shows)
 }
 
 struct HomeCategoryView: View, Identifiable, SearchableProtocol {
@@ -35,12 +36,16 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
                 return [live.song, live.program?.diffusion?.title].compactMap { $0 }
             case .shows(_,_, let shows):
                 return shows.compactMap { $0.title }
+            case .carousel(shows: let shows):
+                return shows.compactMap { $0.title }
         }
     }
     
     @ViewBuilder
     var body: some View {
         switch type {
+            case .carousel(let shows):
+                buildCarouselView(shows: shows)
             case .brand(let title, let brands):
                 buildBrandsView(header: title, brands: brands)
             case .live(let title, let live):
@@ -50,6 +55,33 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
             case .shows(let title, let categoryMode, let shows):
                 buildShowsWithCustomHeader(header: title, categoryMode: categoryMode, shows: shows)
         }
+    }
+    @ViewBuilder
+    func buildCarouselView(shows: Shows) -> some View {
+        Canvas {
+            Carousel(
+                numberOfItems: CGFloat(shows.count),
+                spacing: 10,
+                widthOfHiddenCards: 50
+            ) {
+                ForEach(shows, id: \.self.id) { show in
+                    Item(
+                        _id: Int(Int.random(in: 0...200)),
+                        spacing: 10,
+                        widthOfHiddenCards: 50,
+                        cardHeight: 250
+                    ) {
+                        NavigationLink(destination: DetailsShowView(viewModel: factory.buildShowViewModel(show: show))) {
+                            FullWidthCard(viewMode: .image(.randomImageName()), title: .constant(show.title ?? ""), subtitle: .constant(""))
+                        }
+                    }
+                    .cornerRadius(8)
+                    .transition(AnyTransition.slide)
+                    .animation(.spring())
+                }
+            }
+        }
+        .environmentObject(UIStateModel())
     }
     
     @ViewBuilder
@@ -80,7 +112,7 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
                 .font(.headline)
                 .bold()
             
-            FullWidthCard(viewMode: .color(.random()), title: .constant(live.show?.title ?? ""), subtitle: .constant(live.song ?? ""))
+            FullWidthCard(viewMode: .color(.random()), title: .constant(live.show?.diffusion?.title ?? ""), subtitle: .constant(live.song ?? ""))
         }
         .padding(.horizontal)
     }
@@ -101,7 +133,7 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
                                 case .miniatureCard:
                                     MiniatureCardView(viewMode: .color(.random()), text: .constant(show.title ?? "N/A"))
                                 case .verticalCard:
-                                    VerticalCardView(viewMode: .color(.random()),
+                                    VerticalCardView(viewMode: .image(.randomImageName()),
                                                      title: .constant(show.title!),
                                                      subtitle: .constant(""))
                                 case .fullwidthCard:
