@@ -28,8 +28,8 @@ extension RandomBackgroundProtocol {
     var background: some View {
         switch viewMode {
             case .image(let imageName):
-                Rectangle()
-                    .fill(Color.random())
+                Image(imageName)
+                    .resizable()
             case .color(let color):
                 Rectangle()
                     .fill(color)

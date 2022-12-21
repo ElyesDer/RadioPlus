@@ -40,6 +40,6 @@ struct VerticalCardView: View, RandomBackgroundProtocol {
 
 struct VerticalCardView_Previews: PreviewProvider {
     static var previews: some View {
-        VerticalCardView(viewMode: .image(""), title: .constant("head line Sub head line"), subtitle: .constant("Sub head "))
+        VerticalCardView(viewMode: .image(.randomImageName()), title: .constant("head line Sub head line"), subtitle: .constant("Sub head "))
     }
 }

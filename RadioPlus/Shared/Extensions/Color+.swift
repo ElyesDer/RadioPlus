@@ -24,3 +24,9 @@ extension Color {
         ))
     }
 }
+
+extension String {
+    static func randomImageName() -> String {
+        "im_cover_\(Int.random(in: 1...21))"
+    }
+}
