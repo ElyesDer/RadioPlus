@@ -15,6 +15,8 @@ jobs:
       matrix:
         destination: ['platform=iOS Simulator,name=iPhone 8']
     steps:
+    - name: Force XCode 14.1
+    - run: sudo xcode-select -switch /Applications/Xcode_14.1.app
     - uses: actions/checkout@v1
     - name: Run unit tests
       run: |
