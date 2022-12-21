@@ -32,7 +32,6 @@ struct FullWidthCard: View, RandomBackgroundProtocol {
         }
         .cornerRadius(5)
         .frame(height: 180)
-        .padding()
     }
 }
 

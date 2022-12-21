@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 enum HomeViewModelState {
     case loading
@@ -29,21 +30,25 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     @Published
     var viewState: HomeViewModelState = .idle
     
-//    @Published
-//    var brands: Brands = []
-//
-//    @Published
-//    var shows: Shows = []
-//
-//    @Published
-//    var live: Live? = nil
-//
-//    @Published
-//    var grids: Grids = []
+    var brands: Brands = []
+    var shows: Shows = []
+    var live: Live? = nil
+    var grids: Grids = []
     
-    @MainActor
+    var content: [HomeCategoryView] = [] {
+        didSet {
+            renderedContent = content
+        }
+    }
+    
     @Published
-    var content: [HomeCategoryView] = []
+    var renderedContent: [HomeCategoryView] = []
+    
+    @Published
+    var searchText: String = ""
+    
+    @Published
+    var cancellable = Set<AnyCancellable>()
     
     typealias Dependencies = HasGridRepositoryProtocol & HasShowRepositoryProtocol & HasLiveRepositoryProtocol & HasBrandRepositoryProtocol
     
@@ -52,61 +57,101 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         self.gridRepository = dependencies.gridRepository
         self.brandRepository = dependencies.brandRepository
         self.liveRepository = dependencies.liveRepository
+        
+        setupSearchBinding()
+    }
+    
+    func setupSearchBinding() {
+        $searchText
+            .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .receive(on: DispatchQueue.main)
+            .sink { searchText in
+                if searchText.isEmpty {
+                    self.renderedContent = self.content
+                    return
+                }
+                
+                self.renderedContent = self.content.filter { !$0.getSearchableContent().filter { $0.lowercased().contains(searchText.lowercased()) }.isEmpty }
+                    
+            }.store(in: &cancellable)
     }
     
     func prepareHome() {
         Task { @MainActor in
-            let shows = await fetchShows(for: .FRANCEBLEU, first: 10)
-            content.append(.shows(title: "All FRANCEBLEU shows", categoryMode: .fullwidthCard, shows: shows))
+            await [Stations.FIP, .FRANCECULTURE, .FRANCEINTER, .FRANCEMUSIQUE, .FRANCECULTURE].asyncForEach { station in
+                let shows = await fetchShows(for: station, first: 10)
+                if !shows.isEmpty {
+                    content.append(.shows(title: "\(station) shows", categoryMode: .verticalCard, shows: shows))
+                }
+            }
+        }
+        
+        Task { @MainActor in
+            if let randomStation = Stations.allCases.randomElement(), let live = await fetchLive(for: randomStation) {
+                content.append(.live(title: "Currently live @ \(randomStation.rawValue.capitalized)", live: live))
+            }
+        }
+        
+        Task { @MainActor in
+            let brands = await fetchBrands()
+            if !brands.isEmpty {
+                content.append(.brand(title: "Brands", brands: brands))
+            }
         }
     }
     
-    func fetchGrid(start: Date, end: Date, for station: Stations) async {
+    func fetchGrid(start: Date, end: Date, for station: Stations) async -> Grids {
         do {
             let startDate = start.yesterdayDate()!.posixTime()
             let endDate = end.posixTime()
-            let station: Stations = .FRANCEBLEU
-            let grids = try await gridRepository.getGrid(start: startDate, end: endDate, station: station)
+            let station: Stations = station
+            grids = try await gridRepository.getGrid(start: startDate, end: endDate, station: station)
+            return grids
         } catch {
             await handleError(error: error)
         }
+        return []
     }
     
-    func fetchLive(for station: Stations) async {
+    func fetchLive(for station: Stations) async -> Live? {
         do {
-            let live = try await liveRepository.getLive(for: station)
+            live = try await liveRepository.getLive(for: station)
+            return live
         } catch {
             await handleError(error: error)
         }
+        return nil
     }
     
     func fetchShows(for station: Stations, first: Int) async -> Shows {
         do {
-            let showsResponse = try await showRepository.getShows(for: station, first: first)
-            return showsResponse.shows.edges.flatMap {
+            shows = try await showRepository.getShows(for: station, first: first).shows.edges.flatMap {
                 $0.compactMap {
                     $0.node
                 }
             } ?? []
+            return shows
         } catch {
             await handleError(error: error)
         }
-        
         return []
     }
     
-    func fetchBrands() async {
+    func fetchBrands() async -> Brands {
         do {
-            let brands = try await brandRepository.getAllBrands()
+            brands = try await brandRepository.getAllBrands()
+            return brands
         } catch {
             await handleError(error: error)
         }
+        return []
     }
     
     @MainActor
     private func handleError(error: Error) {
+        debugPrint(error.localizedDescription)
         if case .error(_) = viewState { return }
-        
         if let error = error as? Requester.ServiceError {
             self.viewState = .error(error.localizedDescription)
         } else {

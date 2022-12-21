@@ -21,17 +21,7 @@ final class NetworkTests: XCTestCase {
     }
     
     func test_request_grid() async {
-        // given 1
-        zut = Requester()
         
-        // given 2
-        let endPoint: APIEndpoint = .init(method: .post, endURL: .api)
-        
-        do {
-            let _ = try await zut.get(from: endPoint, of: [String].self)
-        } catch let error {
-            XCTAssertTrue(error is Requester.ServiceError)
-        }
     }
     
     func testExample() throws {

@@ -7,13 +7,33 @@
 
 import SwiftUI
 
+struct SearchBar: View {
+    @Binding var searchText: String
+     var body: some View {
+         ZStack {
+             Rectangle()
+                 .foregroundColor(Color("LightGray"))
+             HStack {
+                 Image(systemName: "magnifyingglass")
+                 TextField("Search ..", text: $searchText)
+             }
+             .foregroundColor(.gray)
+             .padding(.leading, 10)
+         }
+             .frame(height: 40)
+             .cornerRadius(13)
+             .padding()
+     }
+ }
+
 struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel
     
     var body: some View {
         ScrollView {
-            VStack {
+            SearchBar(searchText: $viewModel.searchText)
+            VStack(spacing: 15) {
                 AnyView(render())
             }
             .onAppear {
@@ -33,7 +53,7 @@ struct HomeView: View {
 extension HomeView {
     func render() -> any View {
         Group {
-            ForEach(viewModel.content) { view in
+            ForEach(viewModel.renderedContent) { view in
                 view
             }
         }

@@ -1,0 +1,21 @@
+
+brands {
+id
+title
+baseline
+description
+websiteUrl
+liveStream
+localRadios {
+id
+title
+description
+liveStream
+}
+webRadios {
+id
+title
+description
+liveStream
+}
+}

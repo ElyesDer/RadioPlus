@@ -22,7 +22,7 @@ struct MiniatureCardView: View, RandomBackgroundProtocol {
                 .padding()
         }
         .cornerRadius(10)
-        .frame(width: 180, height: 100, alignment: .center)
+        .frame(width: 150, height: 100, alignment: .center)
     }
 }
 

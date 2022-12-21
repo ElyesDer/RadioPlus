@@ -18,7 +18,7 @@ struct BrandResponse: Codable {
 
 typealias Brands = [Brand]
 // MARK: - Brand
-struct Brand: Codable {
+struct Brand: Codable, Identifiable {
     let id, title: String?
     let baseline: String?
     let brandDescription: String?

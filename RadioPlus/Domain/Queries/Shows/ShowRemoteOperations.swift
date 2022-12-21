@@ -22,26 +22,15 @@ struct ShowRemoteOperation: GraphQLOperationProtocol {
     
     static func getShows(with query: ShowQuery) -> Self {
         ShowRemoteOperation(input: query,
-                             operationString: """
-                            {
-                              brands {
-                                id
-                                title
-                                baseline
-                                description
-                                websiteUrl
-                                liveStream
-                                localRadios {
-                                  id
-                                  title
-                                  description
-                                  liveStream
-                                }
-                                webRadios {
-                                  id
-                                  title
-                                  description
-                                  liveStream
+                            operationString: """
+                            query getShows($station: StationsEnum!, $first: Int) {
+                              shows(station: $station, first: $first) {
+                                edges {
+                                  cursor
+                                  node {
+                                    id
+                                    title
+                                  }
                                 }
                               }
                             }

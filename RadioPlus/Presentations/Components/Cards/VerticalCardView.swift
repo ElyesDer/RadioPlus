@@ -25,12 +25,13 @@ struct VerticalCardView: View, RandomBackgroundProtocol {
                     .foregroundColor(.random())
                     .bold()
                     .font(.headline)
+                    .minimumScaleFactor(0.5)
                 
                 Text(subtitle)
                     .foregroundColor(.white)
                     .font(.subheadline)
             }
-            .padding()
+            .padding(4)
         }
         .cornerRadius(10)
         .frame(width: 150, height: 200, alignment: .bottom)

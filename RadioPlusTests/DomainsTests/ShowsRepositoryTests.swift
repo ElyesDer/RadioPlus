@@ -1,16 +1,17 @@
 //
-//  GridRepositoryTests.swift
+//  ShowsRepositoryTests.swift
 //  RadioPlusTests
 //
-//  Created by Derouiche Elyes on 19/12/2022.
+//  Created by Derouiche Elyes on 20/12/2022.
 //
 
+import Foundation
 import XCTest
 @testable import RadioPlus
 
-final class GridRepositoryTests: XCTestCase {
+final class ShowsRepositoryTests: XCTestCase {
     
-    var zut: GridRepositoryProtocol!
+    var zut: ShowRepositoryProtocol!
     
     var provider: NetworkProvider!
     var requester: DataServiceProviderProtocol!
@@ -25,18 +26,17 @@ final class GridRepositoryTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func test_grid_repository() async {
+    func test_shows_repository() async {
         // given
-        zut = GridRepository(requester: requester)
+        zut = ShowRepository(requester: requester)
         
         // with
-        let startDate = Date().yesterdayDate()!.posixTime()
-        let endDate = Date().posixTime()
-        let station: Stations = .FRANCEBLEU
+        let station: Stations = .FRANCECULTURE
+        let first: Int = 10
         
         // test
         do {
-            let query = try await zut.getGrid(start: startDate, end: endDate, station: station)
+            let query = try await zut.getShows(for: station, first: first)
         } catch let error {
             XCTFail("Error thrown: \(error)")
         }
