@@ -11,9 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var factory: ViewModelFactory
     var body: some View {
         NavigationView {
-            TabView {
-                HomeView(viewModel: factory.buildHomeViewModel())
-            }
+            HomeView(viewModel: factory.buildHomeViewModel())
         }
     }
 }
