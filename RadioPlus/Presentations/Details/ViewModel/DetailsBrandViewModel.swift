@@ -22,7 +22,7 @@ class DetailsBrandViewModel: ObservableObject, DetailsBrandViewModelProtocol {
     @Published var baseline: String
     @Published var description: String
     @Published var websiteUrl: String
-    @Published var liveStream: String
+    @Published var liveStream: String?
     @Published var localRadios: Radios = []
     @Published var webRadios: Radios = []
     
@@ -42,7 +42,7 @@ class DetailsBrandViewModel: ObservableObject, DetailsBrandViewModelProtocol {
         self.baseline = brand.baseline ?? ""
         self.description = brand.brandDescription ?? ""
         self.websiteUrl = brand.websiteURL ?? ""
-        self.liveStream = brand.liveStream ?? ""
+        self.liveStream = brand.liveStream
         self.localRadios = brand.localRadios ?? []
         self.webRadios = brand.webRadios ?? []
     }

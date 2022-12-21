@@ -9,29 +9,54 @@ import SwiftUI
 
 struct DetailBrandView: View {
     
+    @EnvironmentObject var player: PlayerManager
     @StateObject var viewModel: DetailsBrandViewModel
     
     var body: some View {
         StickyHeaderContainer {
             VStack {
-                MiniatureCardView(viewMode: .color(.random()), text: $viewModel.title)
-                
-                Spacer()
-                
-                VStack(alignment:.leading, spacing: 15) {
-                    AnyView(render())
-                }.frame( minWidth: 0,
-                         maxWidth: .infinity,
-                         minHeight: 0,
-                         maxHeight: .infinity,
-                         alignment: .leading )
+                ZStack {
+                    HStack {
+                        Spacer()
+                        Spacer()
+                        
+                        if let currentlyPlaying = player.currentlyPlaying, currentlyPlaying == viewModel.brand.id {
+                            Image(systemName: "pause.circle.fill")
+                                .resizable()
+                                .frame(width: 45, height: 45, alignment: .center)
+                                .padding()
+                                .onTapGesture {
+                                    player.stop()
+                                }
+                        } else if let stream = viewModel.liveStream {
+                                Image(systemName: "play.circle.fill")
+                                    .resizable()
+                                    .frame(width: 45, height: 45, alignment: .center)
+                                    .padding()
+                                    .onTapGesture {
+                                        _ = player.play(identifier: viewModel.brand.id ?? "", url: stream)
+                                    }
+                            }
+                    }
+                    MiniatureCardView(viewMode: .color(.random()), text: $viewModel.title)
             }
-            .offset(y: -50)
+            
+            Spacer()
+            
+            VStack(alignment:.leading, spacing: 15) {
+                AnyView(render())
+            }.frame( minWidth: 0,
+                     maxWidth: .infinity,
+                     minHeight: 0,
+                     maxHeight: .infinity,
+                     alignment: .leading )
         }
+        .offset(y: -50)
+    }
         .onAppear {
             viewModel.prepareView()
         }
-    }
+}
 }
 
 extension DetailBrandView {

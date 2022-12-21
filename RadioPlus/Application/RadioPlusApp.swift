@@ -16,6 +16,7 @@ struct RadioPlusApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModelFactory)
+                .environmentObject(PlayerManager())
         }
     }
 }
