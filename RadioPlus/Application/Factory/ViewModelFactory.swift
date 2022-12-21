@@ -30,4 +30,18 @@ class ViewModelFactory: ObservableObject, ViewModelFactoryProtocol {
     func buildHomeViewModel() -> HomeViewModel {
         return HomeViewModel(dependencies: self)
     }
+    
+    func buildLiveViewModel(live: Live) -> DetailsLiveViewModel {
+        return DetailsLiveViewModel(dependencies: self, live: live)
+    }
+    
+    
+    func buildBrandViewModel(brand: Brand) -> DetailsBrandViewModel {
+        return DetailsBrandViewModel(dependencies: self, brand: brand)
+    }
+    
+    func buildShowViewModel(show: Show) -> DetailsShowViewModel {
+        return DetailsShowViewModel(dependencies: self, show: show)
+    }
+    
 }

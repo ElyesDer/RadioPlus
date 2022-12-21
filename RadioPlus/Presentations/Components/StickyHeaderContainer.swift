@@ -30,7 +30,8 @@ struct StickyHeaderContainer<Content: View>: View, RandomBackgroundProtocol {
                         .offset(y: -geo.frame(in: .global).minY)
                         .frame(width: geo.size.width, height: geo.size.height + geo.frame(in: .global).minY)
                 }
-            }.frame(minHeight: minHeight)
+            }
+            .frame(minHeight: minHeight)
             
             content
         }
@@ -40,8 +41,10 @@ struct StickyHeaderContainer<Content: View>: View, RandomBackgroundProtocol {
 struct StickyHeaderContainer_Previews: PreviewProvider {
     static var previews: some View {
         StickyHeaderContainer(viewMode: .color(.random())) {
-            VStack {
-                Text("bro")
+            HStack {
+                Spacer()
+                Spacer()
+                Text("Content")
             }
             .background(Color.red)
         }

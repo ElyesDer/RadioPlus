@@ -34,8 +34,9 @@ struct Brand: Codable, Identifiable {
     }
 }
 
+typealias Radios = [Radio]
 // MARK: - Radio
-struct Radio: Codable {
+struct Radio: Codable, Identifiable {
     let id, title, radioDescription: String?
     let liveStream: String?
 

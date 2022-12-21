@@ -8,7 +8,9 @@
 import Foundation
 
 // MARK: - Diffusion
-struct Diffusion: Codable {
+typealias Diffusions = [Diffusion]
+
+struct Diffusion: Codable, Identifiable {
     let id, title, standFirst: String?
     let url: String?
     let publishedDate: String?

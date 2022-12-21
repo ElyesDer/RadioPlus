@@ -37,6 +37,7 @@ final class ShowsRepositoryTests: XCTestCase {
         // test
         do {
             let query = try await zut.getShows(for: station, first: first)
+            print(query.shows.edges)
         } catch let error {
             XCTFail("Error thrown: \(error)")
         }

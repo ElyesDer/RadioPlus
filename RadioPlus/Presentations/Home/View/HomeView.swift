@@ -9,22 +9,22 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var searchText: String
-     var body: some View {
-         ZStack {
-             Rectangle()
-                 .foregroundColor(Color("LightGray"))
-             HStack {
-                 Image(systemName: "magnifyingglass")
-                 TextField("Search ..", text: $searchText)
-             }
-             .foregroundColor(.gray)
-             .padding(.leading, 10)
-         }
-             .frame(height: 40)
-             .cornerRadius(13)
-             .padding()
-     }
- }
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color("LightGray"))
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Local search ..", text: $searchText)
+            }
+            .foregroundColor(.gray)
+            .padding(.leading, 10)
+        }
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding()
+    }
+}
 
 struct HomeView: View {
     
@@ -35,9 +35,6 @@ struct HomeView: View {
             SearchBar(searchText: $viewModel.searchText)
             VStack(spacing: 15) {
                 AnyView(render())
-            }
-            .onAppear {
-                viewModel.prepareHome()
             }
             .tabItem {
                 Label(title: {

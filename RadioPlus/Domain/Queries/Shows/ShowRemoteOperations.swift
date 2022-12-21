@@ -30,6 +30,28 @@ struct ShowRemoteOperation: GraphQLOperationProtocol {
                                   node {
                                     id
                                     title
+                                    standFirst
+                                    url
+                                    diffusionsConnection {
+                                      edges {
+                                        node {
+                                          id
+                                          title
+                                          standFirst
+                                          url
+                                          personalitiesConnection {
+                                            edges {
+                                              relation
+                                              info
+                                              node {
+                                                id
+                                                name
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }

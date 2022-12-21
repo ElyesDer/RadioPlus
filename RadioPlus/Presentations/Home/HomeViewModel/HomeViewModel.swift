@@ -59,6 +59,8 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         self.liveRepository = dependencies.liveRepository
         
         setupSearchBinding()
+        
+        prepareHome()
     }
     
     func setupSearchBinding() {
@@ -73,7 +75,7 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
                 }
                 
                 self.renderedContent = self.content.filter { !$0.getSearchableContent().filter { $0.lowercased().contains(searchText.lowercased()) }.isEmpty }
-                    
+                
             }.store(in: &cancellable)
     }
     
@@ -82,21 +84,21 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
             await [Stations.FIP, .FRANCECULTURE, .FRANCEINTER, .FRANCEMUSIQUE, .FRANCECULTURE].asyncForEach { station in
                 let shows = await fetchShows(for: station, first: 10)
                 if !shows.isEmpty {
-                    content.append(.shows(title: "\(station) shows", categoryMode: .verticalCard, shows: shows))
+                    content.append(.init(type: .shows(title: "\(station) shows", categoryMode: .verticalCard, shows: shows)))
                 }
             }
         }
         
         Task { @MainActor in
             if let randomStation = Stations.allCases.randomElement(), let live = await fetchLive(for: randomStation) {
-                content.append(.live(title: "Currently live @ \(randomStation.rawValue.capitalized)", live: live))
+                content.append(.init(type: .live(title: "Currently live @ \(randomStation.rawValue.capitalized)", live: live)))
             }
         }
         
         Task { @MainActor in
             let brands = await fetchBrands()
             if !brands.isEmpty {
-                content.append(.brand(title: "Brands", brands: brands))
+                content.append(.init(type: .brand(title: "Brands", brands: brands)))
             }
         }
     }
@@ -150,7 +152,6 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     
     @MainActor
     private func handleError(error: Error) {
-        debugPrint(error.localizedDescription)
         if case .error(_) = viewState { return }
         if let error = error as? Requester.ServiceError {
             self.viewState = .error(error.localizedDescription)

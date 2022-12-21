@@ -21,5 +21,12 @@ struct LiveResponse: Codable {
 // MARK: - Live
 struct Live: Codable {
     let show: Show?
-    let program, song: String?
+    let program: Program?
+    let song: String?
+}
+
+// MARK: - Program
+struct Program: Codable {
+    let id: String?
+    let diffusion: Diffusion?
 }

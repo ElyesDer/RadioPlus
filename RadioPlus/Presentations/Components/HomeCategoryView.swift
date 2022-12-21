@@ -8,44 +8,45 @@
 import Foundation
 import SwiftUI
 
-enum HomeCategoryViewType {
+enum CategoryViewType {
     case miniatureCard
     case verticalCard
     case fullwidthCard
 }
 
-//enum HomeCategoryView: SearchableProtocol {
-//    var title: String? {
-//        return
-//    }
-//}
+enum HomeCategoryTypeView {
+    case brand(title: String, brands: Brands)
+    case live(title: String, live: Live)
+    case shows(title: String, categoryMode: CategoryViewType, shows: Shows)
+}
 
-enum HomeCategoryView: View, Identifiable, SearchableProtocol {
+struct HomeCategoryView: View, Identifiable, SearchableProtocol {
+    
+    @EnvironmentObject var factory: ViewModelFactory
+    
+    var id: UUID { .init() }
+    var type: HomeCategoryTypeView
     
     func getSearchableContent() -> [String] {
-        switch self {
+        switch type {
             case .brand(_, let brands):
                 return brands.compactMap { $0.title }
             case .live(_, let live):
-                return [live.song, live.program].compactMap { $0 }
+                return [live.song, live.program?.diffusion?.title].compactMap { $0 }
             case .shows(_,_, let shows):
                 return shows.compactMap { $0.title }
         }
     }
     
-    var id: UUID { .init() }
-    
-    case brand(title: String, brands: Brands)
-    case live(title: String, live: Live)
-    case shows(title: String, categoryMode: HomeCategoryViewType, shows: Shows)
-    
     @ViewBuilder
     var body: some View {
-        switch self {
+        switch type {
             case .brand(let title, let brands):
                 buildBrandsView(header: title, brands: brands)
             case .live(let title, let live):
-                buildLiveView(header: title, live: live)
+                NavigationLink(destination: DetailsLiveView(viewModel: factory.buildLiveViewModel(live: live))){
+                    buildLiveView(header: title, live: live)
+                }
             case .shows(let title, let categoryMode, let shows):
                 buildShowsWithCustomHeader(header: title, categoryMode: categoryMode, shows: shows)
         }
@@ -62,7 +63,9 @@ enum HomeCategoryView: View, Identifiable, SearchableProtocol {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(brands) { brand in
-                        MiniatureCardView(viewMode: .color(.random()), text: .constant(brand.title ?? ""))
+                        NavigationLink(destination: DetailBrandView(viewModel: factory.buildBrandViewModel(brand: brand))){
+                            MiniatureCardView(viewMode: .color(.random()), text: .constant(brand.title ?? ""))
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -83,7 +86,7 @@ enum HomeCategoryView: View, Identifiable, SearchableProtocol {
     }
     
     @ViewBuilder
-    func buildShowsWithCustomHeader(header: String, categoryMode: HomeCategoryViewType, shows: Shows) -> some View {
+    func buildShowsWithCustomHeader(header: String, categoryMode: CategoryViewType, shows: Shows) -> some View {
         VStack (alignment: .leading) {
             Text(header)
                 .font(.headline)
@@ -93,15 +96,17 @@ enum HomeCategoryView: View, Identifiable, SearchableProtocol {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(shows) { show in
-                        switch categoryMode {
-                            case .miniatureCard:
-                                MiniatureCardView(viewMode: .color(.random()), text: .constant(show.title ?? "N/A"))
-                            case .verticalCard:
-                                VerticalCardView(viewMode: .color(.random()),
-                                                 title: .constant(show.title!),
-                                                 subtitle: .constant(""))
-                            case .fullwidthCard:
-                                FullWidthCard(viewMode: .color(.random()), title: .constant(show.title ?? ""), subtitle: .constant(""))
+                        NavigationLink(destination: DetailsShowView(viewModel: factory.buildShowViewModel(show: show))) {
+                            switch categoryMode {
+                                case .miniatureCard:
+                                    MiniatureCardView(viewMode: .color(.random()), text: .constant(show.title ?? "N/A"))
+                                case .verticalCard:
+                                    VerticalCardView(viewMode: .color(.random()),
+                                                     title: .constant(show.title!),
+                                                     subtitle: .constant(""))
+                                case .fullwidthCard:
+                                    FullWidthCard(viewMode: .color(.random()), title: .constant(show.title ?? ""), subtitle: .constant(""))
+                            }
                         }
                     }
                 }

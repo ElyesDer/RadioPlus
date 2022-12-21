@@ -17,7 +17,16 @@ typealias Shows = [Show]
 // MARK: - Show
 struct Show: Codable, Identifiable {
     let id, title: String?
+    let standFirst: String?
+    let url: String?
     let diffusion: Diffusion?
+    let diffusionsConnection: EdgeWrapper<Diffusion>?
+}
+
+// MARK: - DiffusionNode
+struct DiffusionNode: Codable {
+    let title: String?
+    let url: String?
 }
 
 // MARK: - ShowsResponse
