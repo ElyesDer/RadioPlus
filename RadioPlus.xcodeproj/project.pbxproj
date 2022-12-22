@@ -14,6 +14,7 @@
 		E938CBB52950DD9800B40688 /* RadioPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBB42950DD9800B40688 /* RadioPlusTests.swift */; };
 		E938CBBF2950DD9800B40688 /* RadioPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBBE2950DD9800B40688 /* RadioPlusUITests.swift */; };
 		E938CBC12950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938CBC02950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift */; };
+		E94EC70B29545CB7001A8656 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E94EC70A29545CB7001A8656 /* readme.md */; };
 		E96238DE2952F5E300175837 /* DetailsLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238DD2952F5E300175837 /* DetailsLiveViewModel.swift */; };
 		E96238E22952F7D200175837 /* DetailsLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238E12952F7D200175837 /* DetailsLiveView.swift */; };
 		E96238E7295307A500175837 /* DetailBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96238E6295307A500175837 /* DetailBrandView.swift */; };
@@ -93,6 +94,7 @@
 		E938CBBA2950DD9800B40688 /* RadioPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E938CBBE2950DD9800B40688 /* RadioPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlusUITests.swift; sourceTree = "<group>"; };
 		E938CBC02950DD9800B40688 /* RadioPlusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E94EC70A29545CB7001A8656 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		E96238DD2952F5E300175837 /* DetailsLiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLiveViewModel.swift; sourceTree = "<group>"; };
 		E96238E12952F7D200175837 /* DetailsLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLiveView.swift; sourceTree = "<group>"; };
 		E96238E6295307A500175837 /* DetailBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBrandView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		E938CB962950DD9300B40688 = {
 			isa = PBXGroup;
 			children = (
+				E94EC70A29545CB7001A8656 /* readme.md */,
 				E938CBA12950DD9300B40688 /* RadioPlus */,
 				E938CBB32950DD9800B40688 /* RadioPlusTests */,
 				E938CBBD2950DD9800B40688 /* RadioPlusUITests */,
@@ -630,6 +633,7 @@
 				E9CFB2D829510D720070B404 /* GridQuery.query in Resources */,
 				E938CBAB2950DD9700B40688 /* Preview Assets.xcassets in Resources */,
 				E9CFB32A29525DB10070B404 /* show.graphql in Resources */,
+				E94EC70B29545CB7001A8656 /* readme.md in Resources */,
 				E938CBA72950DD9700B40688 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
