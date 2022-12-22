@@ -37,3 +37,14 @@ zero
 ## Installation
 Clone the repository, build and run
 
+
+## Screenshots
+
+Dark - Light Support
+
+[![Light1](/screenshot/screenshot1.png)]
+[![Light2](/screenshot/screenshot2.png)]
+[![Light3](/screenshot/screenshot3.png)]
+[![Light4](/screenshot/screenshot4.png)]
+[![Light4](/screenshot/screenshot5.png)]
+[![Dark1](/screenshot/screenshot6.png)]

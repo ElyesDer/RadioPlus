@@ -43,8 +43,8 @@ struct HomeView: View {
 extension HomeView {
     func render() -> any View {
         Group {
-            ForEach(viewModel.renderedContent) { view in
-                view
+            ForEach(viewModel.renderedContent.indices, id: \.self) { indice in
+                viewModel.renderedContent[indice]
             }
         }
     }
