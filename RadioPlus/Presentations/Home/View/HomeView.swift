@@ -36,13 +36,6 @@ struct HomeView: View {
             VStack(spacing: 15) {
                 AnyView(render())
             }
-            .tabItem {
-                Label(title: {
-                    Text("Home")
-                }, icon: {
-                    Image(systemName: "pencil.circle.fill")
-                })
-            }
         }
     }
 }

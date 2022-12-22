@@ -99,7 +99,7 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         }
         
         Task { @MainActor in
-            if let randomStation = Stations.allCases.randomElement(), let live = await fetchLive(for: randomStation) {
+            if let randomStation = Stations.allCases.randomElement(), let live = await fetchLive(for: randomStation), live.show != nil {
                 content.append(.init(type: .live(title: "Currently live @ \(randomStation.rawValue.capitalized)", live: live)))
             }
         }
@@ -108,6 +108,21 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
             let brands = await fetchBrands()
             if !brands.isEmpty {
                 content.append(.init(type: .brand(title: "Brands", brands: brands)))
+            }
+        }
+        
+        Task { @MainActor in
+            if let randomStation = Stations.allCases.randomElement(), let live = await fetchLive(for: randomStation), live.show != nil {
+                content.append(.init(type: .live(title: "Currently live @ \(randomStation.rawValue.capitalized)", live: live)))
+            }
+        }
+        
+        Task { @MainActor in
+            await [Stations.FRANCEBLEU_PROVENCE, .FRANCEINFO, .FRANCEBLEU, .FRANCEBLEU_TOULOUSE, .FRANCEBLEU_PARIS].asyncForEach { station in
+                let shows = await fetchShows(for: station, first: 10)
+                if !shows.isEmpty {
+                    content.append(.init(type: .shows(title: "\(station) shows", categoryMode: .verticalCard, shows: shows)))
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ struct ContentView: View {
         NavigationView {
             HomeView(viewModel: factory.buildHomeViewModel())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

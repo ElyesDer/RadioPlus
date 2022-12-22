@@ -33,7 +33,7 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
             case .brand(_, let brands):
                 return brands.compactMap { $0.title }
             case .live(_, let live):
-                return [live.song, live.program?.diffusion?.title].compactMap { $0 }
+                return [live.song, live.show?.title].compactMap { $0 }
             case .shows(_,_, let shows):
                 return shows.compactMap { $0.title }
             case .carousel(shows: let shows):
@@ -112,7 +112,7 @@ struct HomeCategoryView: View, Identifiable, SearchableProtocol {
                 .font(.headline)
                 .bold()
             
-            FullWidthCard(viewMode: .color(.random()), title: .constant(live.show?.diffusion?.title ?? ""), subtitle: .constant(live.song ?? ""))
+            FullWidthCard(viewMode: .color(.random()), title: .constant(live.show?.title ?? ""), subtitle: .constant(live.song ?? ""))
         }
         .padding(.horizontal)
     }
